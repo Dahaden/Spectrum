@@ -2,7 +2,7 @@ var webpack = require('webpack');
 var path = require('path');
 const { CheckerPlugin } = require('awesome-typescript-loader');
 
-var BUILD_DIR = path.resolve(__dirname, './build');
+var BUILD_DIR = path.resolve(__dirname, './public/js');
 var APP_DIR = path.resolve(__dirname, './src/client');
 
 const config = {
