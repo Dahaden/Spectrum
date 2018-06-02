@@ -1,0 +1,20 @@
+{
+  "compilerOptions": {
+      "outDir": "./built",
+      "allowJs": false,
+      "target": "es5",
+      "module": "commonjs",
+      "jsx": "react",
+      "lib": ["es6", "es7", "dom"],
+      "noImplicitAny": false,
+      "strictNullChecks": true,
+      "noUnusedLocals": false,
+      "noUnusedParameters": false,
+      "forceConsistentCasingInFileNames": true,
+      "sourceMap": true,
+  },
+  
+  "include": [
+      "./src/**/*"
+  ]
+}
