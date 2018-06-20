@@ -1,9 +1,7 @@
 import SpectrumType from '../common/SpectrumTypes';
 import { Sequelize, ISequelizeConfig } from 'sequelize-typescript';
 
-import Spectrum from './models/Spectrum';
-import Item from './models/Item';
-import ItemCharacteristic from './models/ItemCharacteristic';
+import { Spectrum, Item, ItemCharacteristic } from './models';
 
 const database: string = process.env.PGDATABASE || '';
 const username: string = process.env.PGUSER || '';
@@ -14,7 +12,7 @@ const config: ISequelizeConfig = {
   dialect: 'postgres',
   username,
   password,
-  modelPaths: [__dirname + '/models'],
+  // modelPaths: [__dirname + '/models'],
   host: process.env.PGHOST,
   port: parseInt(process.env.PGPORT || '0'),
   operatorsAliases: false,
@@ -29,6 +27,8 @@ const config: ISequelizeConfig = {
 
 const sequelize = new Sequelize(config);
 
+sequelize.addModels([ Spectrum, Item, ItemCharacteristic]);
+
 export const checkDatabaseConnection = () => {
   sequelize
     .authenticate()
@@ -41,7 +41,9 @@ export const checkDatabaseConnection = () => {
   sequelize.sync();
 }
 
-export const createSpectrum = (name: string): Promise<boolean> => {
-   return Promise.reject("Still testing");
-  
+export const createSpectrum = (name: string, answer: string): Spectrum => {
+  const spectrum = Spectrum.build({ name, answer });
+  spectrum.save();
+  console.log("Spectrum:", JSON.stringify(spectrum, null, 2));
+  return spectrum;
 } 

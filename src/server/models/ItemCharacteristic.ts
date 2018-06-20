@@ -1,4 +1,4 @@
-import { Table, Column, ForeignKey, Model } from 'sequelize-typescript';
+import { Table, Column, ForeignKey, Model, BelongsTo } from 'sequelize-typescript';
 import SpectrumTable from './Spectrum';
 import ItemTable from './Item';
 
@@ -14,7 +14,6 @@ export enum ItemCharacteristicType {
 export default class ItemCharacteristic extends Model<ItemCharacteristic> {
  
   @ForeignKey(() => SpectrumTable)
-  @Column
   spectrumId: number;
 
   @ForeignKey(() => ItemTable)
