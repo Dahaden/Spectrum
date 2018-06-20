@@ -1,21 +1,6 @@
+import SpectrumType from '../common/SpectrumTypes';
 
-
-interface Spectrum {
-  values: SpectrumItems; 
-}
-
-interface SpectrumItems {
-  [value: string]: SpectrumItem;
-}
-
-interface SpectrumItem {
-  greaterThan: string[];
-  lessThan: string[];
-  onSpectrum: boolean;
-  equalTo: string[];
-}
-
-const dummyData: Spectrum = {
+const dummyData: SpectrumType = {
   values: {
     air: {
       onSpectrum: true,
@@ -28,6 +13,32 @@ const dummyData: Spectrum = {
       equalTo: [
         'popcorn'
       ]
+    },
+    fire: {
+      onSpectrum: true,
+      greaterThan: [],
+      lessThan: [
+        'air'
+      ],
+      equalTo: []
+    },
+    popcorn: {
+      onSpectrum: true,
+      greaterThan: [],
+      lessThan: [],
+      equalTo: [ 'air' ]
+    },
+    tank: {
+      onSpectrum: true,
+      greaterThan: [ 'air' ],
+      lessThan: [],
+      equalTo: []
+    },
+    cup: {
+      onSpectrum: false,
+      greaterThan: [],
+      lessThan: [],
+      equalTo: []
     }
   }
 };

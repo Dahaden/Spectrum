@@ -1,8 +1,11 @@
 import * as express from 'express';
 import data from './Response';
+import { checkDatabaseConnection } from './database';
 
 const app = express();
 
+console.log("Calling db");
+checkDatabaseConnection();
 
 app.get('/spectrums/test', function(req, res) {
   res.json(data);

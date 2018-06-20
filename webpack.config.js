@@ -23,7 +23,7 @@ const config = {
           loader: "awesome-typescript-loader",
           options: {
             cacheDirectory: true,
-            presets: ['react', 'es2015'] // Transpiles JSX and ES6
+            presets: ['react', 'es2015', 'stage-0'] // Transpiles JSX and ES6
           }
         },
         ]
